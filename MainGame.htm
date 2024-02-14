@@ -1,0 +1,90 @@
+<html lang="en">
+  <head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+
+        background-color: rgb(64, 64, 64);
+      }
+      .game_holder {
+        /* border: 1px solid red; */
+        width: 420px;
+        /* height: 500px; */
+        margin: 100px auto;
+        display: flex;
+        flex-flow: wrap;
+        gap: 5px;
+        position: relative;
+      }
+      .game_holder > .items {
+        transition: 0.5s;
+        background-color: black;
+        color: white;
+        text-align: center;
+        line-height: 100px;
+        height: 100px;
+        width: 100px;
+        border-radius: 5px;
+        background-position: 50% 50%;
+        font-size: 50px;
+
+        cursor: pointer;
+      }
+      .game_holder > .timer {
+        color: green;
+        font-size: 18px;
+        position: absolute;
+        line-height: 0px;
+        top: -55px;
+        right: 0px;
+      }
+      .game_holder > .timer > span {
+        font-size: 30px;
+      }
+      #CurrentPoint {
+        font-size: 30px;
+        color: green;
+
+        position: absolute;
+        top: -80px;
+        left: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game_holder" id="GameHolder">
+      <h2 id="CurrentPoint">score : 0</h2>
+      <h2 class="timer">
+        spent time
+        <span id="min_time">0</span> : <span id="sec_time">0</span>
+      </h2>
+      <!-- <div class="items">1</div>
+      <div class="items">2</div>
+      <div class="items">3</div>
+      <div class="items">4</div>
+      <div class="items">5</div>
+      <div class="items">6</div>
+      <div class="items">7</div>
+      <div class="items">8</div> -->
+    </div>
+    <script>
+      //these for timer:
+      CurrentMin = 0;
+      CurrentSec = 0;
+      setInterval(() => {
+        if (CurrentSec == 59) {
+          CurrentSec = 0;
+          CurrentMin++;
+          sec_time.innerHTML = CurrentSec;
+          min_time.innerHTML = CurrentMin;
+        } else {
+          CurrentSec++;
+          sec_time.innerHTML = CurrentSec;
+        }
+      }, 1000);
+    </script>
+    <script src="JavaScript/Main_Jason.js"></script>
+    <script src="JavaScript/Main.js"></script>
+  </body>
+</html>
